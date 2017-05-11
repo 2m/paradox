@@ -35,8 +35,8 @@ lazy val paradox = project
 
 lazy val core = project
   .in(file("core"))
-  .disablePlugins(BintrayPlugin)
-  .enablePlugins(SonatypePublish)
+  //.disablePlugins(BintrayPlugin)
+  //.enablePlugins(SonatypePublish)
   .settings(
     name := "paradox",
     libraryDependencies ++= Seq(
@@ -52,7 +52,7 @@ lazy val plugin = project
   .in(file("plugin"))
   .dependsOn(core)
   .enablePlugins(BintrayPublish)
-  .disablePlugins(Sonatype)
+  //.disablePlugins(Sonatype)
   .settings(
     name := "sbt-paradox",
     sbtPlugin := true,
@@ -79,7 +79,7 @@ lazy val plugin = project
 
 lazy val themePlugin = (project in file("theme-plugin"))
   .enablePlugins(BintrayPublish)
-  .disablePlugins(Sonatype)
+  //.disablePlugins(Sonatype)
   .settings(
     name := "sbt-paradox-theme",
     sbtPlugin := true,
@@ -91,8 +91,8 @@ lazy val themes = (project in file("themes"))
   .enablePlugins(NoPublish)
 
 lazy val genericTheme = (project in (file("themes") / "generic"))
-  .disablePlugins(BintrayPlugin)
-  .enablePlugins(ParadoxThemePlugin, SonatypePublish)
+  //.disablePlugins(BintrayPlugin)
+  .enablePlugins(ParadoxThemePlugin/*, SonatypePublish*/)
   .settings(
     name := "paradox-theme-generic",
     libraryDependencies ++= Seq(
@@ -112,7 +112,7 @@ lazy val docs = (project in file("docs"))
 
 addCommandAlias("verify", ";test ;scripted ;docs/paradox")
 
-sonatypeProfileName := "com.lightbend"
+//sonatypeProfileName := "com.lightbend"
 releaseProcess := {
   import sbtrelease.ReleaseStateTransformations._
   Seq[ReleaseStep](

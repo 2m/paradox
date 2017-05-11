@@ -27,7 +27,6 @@ object BintrayPublish extends AutoPlugin {
   override def requires = plugins.JvmPlugin && BintrayPlugin
 
   override def buildSettings = Seq(
-    BintrayKeys.bintrayOrganization := Some("sbt"),
     BintrayKeys.bintrayReleaseOnPublish := false
   )
 
